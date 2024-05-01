@@ -12,7 +12,8 @@ export class DetailsComponent implements OnInit {
   sub: any;
   chart: any;
   ForecastPiece: any;
-  selectedIndex: any = undefined;
+  selectedIndex: any = 0;
+  selectedData: any;
   knownCities: Array<string> = ['kansas', 'columbia'];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -45,16 +46,10 @@ export class DetailsComponent implements OnInit {
   //       this.createChart(times, temperatures);
   //     });
   // }
-  switchIndex(data: any) {
+  switchIndex(data: any, selectedData: any) {
     this.selectedIndex = data;
-  }
-
-  returnActive(index: number, item: any) {
-    if (this.selectedIndex && item == this.selectedIndex) {
-      return true;
-    } else {
-      return true;
-    }
+    this.selectedData = selectedData;
+    console.log(selectedData);
   }
   FetchLocationDetails(data: string) {
     const string = data === 'columbia' ? 'LWX' : 'TOP';
