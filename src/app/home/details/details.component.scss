@@ -41,3 +41,13 @@
     width: 10rem;
   }
 }
+
+.bg-light-grey {
+  background-color: #ebebeb;
+  width: 100%;
+  .inner-light {
+    color: #fff !important;
+    background-color: #4caf50 !important;
+    height: 100%;
+  }
+}
