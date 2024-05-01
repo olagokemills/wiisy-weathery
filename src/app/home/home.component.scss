@@ -24,7 +24,7 @@
   }
   &-text-left {
     left: 0;
-    color: #4193ff;
+    color: white;
     font-size: 24px;
   }
   &-text-right {
@@ -54,4 +54,10 @@
   img {
     width: 50px;
   }
+}
+
+.text-center {
+  width: 100%;
+  text-align: center;
+  padding-top: 2rem;
 }
