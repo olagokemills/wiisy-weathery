@@ -1,0 +1,95 @@
+<!-- <div style="width: 40rem">
+  <canvas id="line-chart" width="800" height="400"></canvas>
+</div> -->
+<div class="container">
+  <h2>Weathery App</h2>
+  <div class="page-wrapper">
+    <div class="d-flex justify-content-between" style="width: 60rem; gap: 1rem">
+      <div>
+        <h4 class="my-3">Kansas</h4>
+        <div class="card" (click)="GotoPage('kansas')">
+          <div class="card-text-left">
+            <div class="side-header">
+              <img [src]="KansasData?.icon" width="50px" />
+              <h4>
+                {{ KansasData?.temperature | temperature }}
+              </h4>
+            </div>
+          </div>
+          <img src="assets/images/kansas.jpg" alt="Card Image" />
+          <div class="card-text-right">
+            <p>
+              {{ convertDateFormat(KansasData?.startTime) }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4 class="my-3">Columbia</h4>
+        <div class="card" (click)="GotoPage('columbia')">
+          <div class="card-text-left">
+            <div class="side-header">
+              <img [src]="ColumbiaData?.icon" width="50px" />
+              <h4>
+                {{ ColumbiaData?.temperature | temperature }}
+              </h4>
+            </div>
+          </div>
+          <img src="assets/images/kansas.jpg" alt="Card Image" />
+          <div class="card-text-right">
+            <p>{{ convertDateFormat(KansasData?.startTime) }}</p>
+          </div>
+        </div>
+      </div>
+      <!-- <div>
+        <div class="card smaller-card">
+          <span>plus <br /><small>Add City</small></span>
+        </div>
+      </div> -->
+
+      <!-- <div class="card">
+        <img src="assets/images/kansas.jpg" width="100%" alt="Card Image" />
+        <div class="card-content">
+          <p>Your text content goes here</p>
+        </div>
+      </div> -->
+      <!-- <div
+        class="d-flex"
+        style="width: 100%; background-color: aliceblue; border-radius: 10px"
+      >
+        <div>
+          <img src="assets/images/kansas.jpg" width="100%" />
+        </div>
+        <div>
+          <h4>12<sup>0</sup></h4>
+        </div>
+
+        <h6>
+          Monday, 7:43 AM <br />
+          Partly Cloudy
+        </h6>
+      </div>
+      <div class="d-flex" style="width: 100%; background-color: aliceblue">
+        <h4>12<sup>0</sup></h4>
+        <h6>
+          Monday, 7:43 AM <br />
+          Partly Cloudy
+        </h6>
+      </div> -->
+      <!-- <div class="d-flex" style="width: 100%; background-color: aliceblue">
+        <h4>12<sup>0</sup></h4>
+        <h6>
+          Monday, 7:43 AM <br />
+          Partly Cloudy
+        </h6>
+      </div> -->
+    </div>
+  </div>
+</div>
+<!-- 
+<div class="card">
+  <div class="card-content">
+    <p>Your text content goes here</p>
+  </div>
+  <img src="assets/images/kansas.jpg" alt="Card Image" />
+</div> -->

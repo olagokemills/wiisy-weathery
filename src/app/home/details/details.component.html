@@ -1,0 +1,31 @@
+<div class="page-wrapper" style="width: 100%; display: flex; height: 100vh">
+  <div style="width: 65%; background-color: #ebebeb; padding: 2rem">
+    <div>
+      <h6>Current Temperature</h6>
+      <div>
+        <h3>Duration Timeline</h3>
+        <div class="timeline-wrapper">
+          <div
+            class="timeline-card"
+            *ngFor="let item of ForecastPiece; let i = index"
+            [ngClass]="{ active: returnActive(i, item) }"
+            (click)="switchIndex(i)"
+          >
+            <h6>{{ item?.name }}</h6>
+            <h5>{{ item?.temperature | temperature }}</h5>
+            <img [src]="item?.icon" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+        <h6>{{ selectedIndex?.name }}</h6>
+      </div>
+    </div>
+    <div style="width: 100%">
+      <canvas id="line-chart" width="800" height="400"></canvas>
+    </div>
+  </div>
+  <div style="width: 35%; background-color: aqua; padding: 2rem">leaf</div>
+</div>

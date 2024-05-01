@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  background-color: #efefef;
+  width: 100%;
+  height: 100vh;
+}
+.w-100 {
+  width: 100%;
+}
+.d-flex {
+  display: flex;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.align-items-center {
+  align-items: center;
+}
+
+.gp-025 {
+  gap: 0.25rem;
+}
+.my-3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}

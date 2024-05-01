@@ -1,0 +1,27 @@
+.timeline-wrapper {
+  width: 100%;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  display: flex;
+  padding: 1.2rem;
+  background-color: #5940d4;
+  .timeline-card {
+    width: 20rem;
+    padding: 1.2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 1s ease-in;
+    img {
+      width: 60px;
+      border-radius: 10px;
+    }
+    &.active-timeline,
+    &:hover {
+      background-color: #a594fd;
+      border-radius: 7px;
+    }
+  }
+}
