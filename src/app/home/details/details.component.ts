@@ -17,46 +17,31 @@ export class DetailsComponent implements OnInit {
   knownCities: Array<string> = ['kansas', 'columbia'];
   constructor(
     private activatedRoute: ActivatedRoute,
-    private utils: UtilitiesService
+    public utils: UtilitiesService
   ) {}
 
   ngOnInit(): void {
     this.sub = this.activatedRoute.params.subscribe((params) => {
-      console.log(params);
       const cityName = params['cityName'];
-      console.log(cityName);
       if (this.knownCities.includes(cityName)) {
         this.FetchLocationDetails(cityName);
       } else {
-        console.log('eh no dey');
+        alert('Page has been accessed wrongly');
+        setTimeout(() => {
+          this.utils.router.navigate(['/']);
+        }, 1200);
       }
     });
   }
-
-  // fetchChart() {
-  //   this.http
-  //     .get<any>('https://api.weather.gov/gridpoints/TOP/31,80/forecast')
-  //     .subscribe((data) => {
-  //       const temperatures = data.properties.periods.map(
-  //         (period: any) => period.temperature
-  //       );
-  //       const times = data.properties.periods.map((period: any) =>
-  //         this.formatTime(period.startTime)
-  //       );
-  //       this.createChart(times, temperatures);
-  //     });
-  // }
   switchIndex(data: any, selectedData: any) {
     this.selectedIndex = data;
     this.selectedData = selectedData;
-    console.log(selectedData);
   }
   FetchLocationDetails(data: string) {
     const string = data === 'columbia' ? 'LWX' : 'TOP';
     this.utils.fetchForecast(string).subscribe((res: ForecastData) => {
       this.ForecastPiece = res.properties.periods;
       this.selectedData = res.properties.periods[0];
-      console.log(this.ForecastPiece);
       const temperatures = res.properties.periods.map(
         (period: any) => period.temperature
       );
@@ -123,7 +108,7 @@ export class DetailsComponent implements OnInit {
             type: 'category',
             title: {
               display: true,
-              text: 'Time',
+              text: 'Period',
             },
           },
           y: {

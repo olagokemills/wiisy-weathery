@@ -21,4 +21,32 @@ export class UtilitiesService {
       `${this.baseUrl}${location}/31,80/forecast`
     );
   }
+
+  convertDateFormat(dateString: string): string {
+    const date = new Date(dateString);
+    const daysOfWeek = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+    const dayOfWeek = daysOfWeek[date.getDay()];
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const time = `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;
+    const period = hours >= 12 ? 'pm' : 'am';
+    const formattedDate = `${dayOfWeek}, ${time}${period}`;
+    return formattedDate;
+  }
+  extractTime(data: string) {
+    const date = new Date(data);
+    const time = date.toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit',
+    });
+    return time;
+  }
 }

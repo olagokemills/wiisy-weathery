@@ -1,7 +1,6 @@
-<div class="page-wrapper" style="width: 100%; display: flex; height: 100vh">
-  <div style="width: 65%; background-color: #ebebeb; padding: 1.5rem">
+<div class="page-wrapper">
+  <div class="left-panel">
     <div>
-      <!-- <h6>Current Temperature</h6> -->
       <div>
         <h3>Duration Timeline</h3>
         <div class="timeline-wrapper">
@@ -31,26 +30,50 @@
         <h4>Wind Direction</h4>
         <h4>{{ selectedData.windDirection }}</h4>
       </div>
+      <div class="info-card">
+        <h4>Rain Chance</h4>
+        <h4>{{ selectedData.probabilityOfPrecipitation.value ?? "N/A" }}</h4>
+      </div>
     </div>
     <div style="width: 100%">
       <canvas id="line-chart" width="800" height="400"></canvas>
     </div>
   </div>
-  <div style="width: 35%; background-color: aqua; padding: 2rem">
-    <div *ngIf="selectedData">
-      <h6>{{ selectedData.name }}</h6>
-      <h4>{{ selectedData.temperature | temperature }}</h4>
-      <p>{{ selectedData.detailedForecast }}</p>
-    </div>
-    <div>
-      <h5>Chance of Rain</h5>
-      <div style="display: flex">
-        7pm
-        <div class="bg-light-grey">
-          <div class="inner-light" style="width: 25%"></div>
+  <div class="right-panel">
+    <ng-container *ngIf="selectedData">
+      <div class="info-area">
+        <div class="info-area-title">
+          <h4>
+            Kansas<br /><span class="temp-value">{{
+              selectedData.temperature | temperature
+            }}</span>
+          </h4>
+          <h4>{{ selectedData.name }}</h4>
         </div>
-        25%
+        <p>{{ selectedData.detailedForecast }}</p>
       </div>
+    </ng-container>
+
+    <div>
+      <h3>Chance of Rain</h3>
+      <ng-container *ngIf="ForecastPiece">
+        <div class="chance-bar" *ngFor="let item of ForecastPiece">
+          <small> {{ utils.extractTime(item.endTime) }}</small>
+          <div class="bg-light-grey">
+            <div
+              class="inner-light"
+              [style.width]="item.probabilityOfPrecipitation.value + '%'"
+            ></div>
+          </div>
+          <small>
+            {{
+              item.probabilityOfPrecipitation.value
+                ? item.probabilityOfPrecipitation.value + "%"
+                : "N/A"
+            }}</small
+          >
+        </div>
+      </ng-container>
     </div>
   </div>
 </div>

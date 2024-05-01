@@ -8,7 +8,7 @@ import { TemperaturePipe } from '../core/pipe/temperature.pipe';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private utils: UtilitiesService) {}
+  constructor(public utils: UtilitiesService) {}
   KansasData: any;
   ColumbiaData: any;
   ngOnInit(): void {
@@ -26,24 +26,5 @@ export class HomeComponent implements OnInit {
   }
   GotoPage(data: string) {
     this.utils.router.navigate(['/details/', data]);
-  }
-  convertDateFormat(dateString: string): string {
-    const date = new Date(dateString);
-    const daysOfWeek = [
-      'Sunday',
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-    ];
-    const dayOfWeek = daysOfWeek[date.getDay()];
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    const time = `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;
-    const period = hours >= 12 ? 'pm' : 'am';
-    const formattedDate = `${dayOfWeek}, ${time}${period}`;
-    return formattedDate;
   }
 }
