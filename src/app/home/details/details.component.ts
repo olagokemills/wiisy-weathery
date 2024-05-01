@@ -55,6 +55,7 @@ export class DetailsComponent implements OnInit {
     const string = data === 'columbia' ? 'LWX' : 'TOP';
     this.utils.fetchForecast(string).subscribe((res: ForecastData) => {
       this.ForecastPiece = res.properties.periods;
+      this.selectedData = res.properties.periods[0];
       console.log(this.ForecastPiece);
       const temperatures = res.properties.periods.map(
         (period: any) => period.temperature

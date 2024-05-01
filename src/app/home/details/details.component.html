@@ -18,58 +18,18 @@
         </div>
       </div>
     </div>
-    <div
-      class="info-wrapper"
-      style="
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-        justify-content: center;
-        margin-top: 3rem;
-        margin-bottom: 2rem;
-      "
-    >
-      <div
-        class="info-card"
-        style="
-          background-color: aliceblue;
-          padding: 1rem;
-          border-radius: 10px;
-          text-align: center;
-          line-height: 24px;
-          width: 10rem;
-        "
-      >
+    <div class="info-wrapper" *ngIf="selectedData">
+      <div class="info-card">
         <h6>Dew Point</h6>
-        <h4>23degs</h4>
+        <h4>{{ selectedData.dewpoint.value | number }} deg</h4>
       </div>
-      <div
-        class="info-card"
-        style="
-          width: 10rem;
-          background-color: aliceblue;
-          padding: 1rem;
-          border-radius: 10px;
-          text-align: center;
-          line-height: 24px;
-        "
-      >
+      <div class="info-card">
         <h4>Relative Humidity</h4>
-        <h6>67%</h6>
+        <h4>{{ selectedData.relativeHumidity.value }} deg</h4>
       </div>
-      <div
-        class="info-card"
-        style="
-          width: 10rem;
-          background-color: aliceblue;
-          padding: 1rem;
-          border-radius: 10px;
-          text-align: center;
-          line-height: 24px;
-        "
-      >
+      <div class="info-card">
         <h4>Wind Direction</h4>
-        <h6>67%</h6>
+        <h4>{{ selectedData.windDirection }}</h4>
       </div>
     </div>
     <div style="width: 100%">
